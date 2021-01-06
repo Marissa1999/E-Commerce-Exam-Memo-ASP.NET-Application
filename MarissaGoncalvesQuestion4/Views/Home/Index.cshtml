@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MarissaGoncalvesQuestion4.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>ASP.NET Exam Home Page</h2>
+
+<p>
+    @Html.ActionLink("Create New Post", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.author)
+        </td>
+        <td>
+            @Html.ActionLink("Edit Post", "Edit", new { id=item.post_id }) |
+            @Html.ActionLink("Delete Post", "Delete", new { id=item.post_id })
+        </td>
+    </tr>
+}
+
+</table>
